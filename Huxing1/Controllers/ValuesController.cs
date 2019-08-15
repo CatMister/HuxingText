@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Huxing.Service.Login;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Huxing1.Controllers
@@ -10,6 +11,12 @@ namespace Huxing1.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private ILoginService loginService;
+        public ValuesController(ILoginService _loginService)
+        {
+            loginService = _loginService;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -21,7 +28,7 @@ namespace Huxing1.Controllers
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return $"{loginService.ReturnTest()}:{id}";
         }
 
         // POST api/values
