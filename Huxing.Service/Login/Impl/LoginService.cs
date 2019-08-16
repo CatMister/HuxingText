@@ -8,7 +8,7 @@ namespace Huxing.Service.Login
     {
         public string ReturnTest()
         {
-            return "Hello  Word!";
+            return "Hello  World!";
         }
     }
 }
